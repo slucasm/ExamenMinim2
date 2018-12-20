@@ -14,7 +14,7 @@ import retrofit2.http.GET;
 public interface APIRest {
 
 
-    @GET
+    @GET("")
     Call<Cities> getCities();
 
 
