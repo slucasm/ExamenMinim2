@@ -2,6 +2,7 @@ package dsa.eetac.upc.edu.examenminim2;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private Adapter recycler;
     private RecyclerView recyclerView;
 
-    private APIRest apiRest;
+    //private APIRest apiRest;
 
+    private DibaAPI dibaAPI;
     ProgressDialog progressDialog;
 
     @Override
@@ -33,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        apiRest = APIRest.createAPIRest();
+
+        dibaAPI = DibaAPI.createDibaAPI();
+
+        Intent intent = getIntent();
 
 
         progressDialog = new ProgressDialog(this);
@@ -49,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void getCities(){
-        Call<Cities> citiesCall = apiRest.getCities();
+        Call<Cities> citiesCall = dibaAPI.getCities(1,11);
         citiesCall.enqueue(new Callback<Cities>() {
             @Override
             public void onResponse(Call<Cities> call, Response<Cities> response) {

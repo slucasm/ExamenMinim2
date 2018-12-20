@@ -61,7 +61,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             super(itemView);
 
             linearLayout = itemView.findViewById(R.id.linearLayout);
-            ImageView_escut = itemView.findViewById(R.id.ImageView_escut);
+            ImageView_escut =(ImageView) itemView.findViewById(R.id.ImageView_escut);
             TextView_city =  itemView.findViewById(R.id.textView_city);
             TextView_ine = itemView.findViewById(R.id.textView_ine);
         }
